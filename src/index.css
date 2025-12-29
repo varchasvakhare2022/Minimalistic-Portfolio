@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-foreground selection:text-background;
+  }
+}
+
+/* Custom utilities if needed */
+.text-balance {
+  text-wrap: balance;
+}
