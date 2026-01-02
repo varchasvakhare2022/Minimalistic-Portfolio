@@ -19,20 +19,20 @@ export default function HeroSection() {
     return (
         <section ref={containerRef} className="h-screen w-full relative flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
-                <Suspense fallback={<div className="w-full h-full bg-black" />}>
+                <Suspense fallback={<div className="w-full h-full bg-black/90" />}>
                     <Scene />
                 </Suspense>
             </div>
 
             <motion.div
                 style={{ y, opacity }}
-                className="relative z-10 text-center mix-blend-difference"
+                className="relative z-10 text-center mix-blend-overlay pointer-events-none"
             >
-                <h1 className="text-6xl md:text-8xl font-light tracking-tighter text-white mb-4">
-                    Audience of One
+                <h1 className="font-serif text-4xl md:text-6xl text-black mb-4 tracking-wider font-normal">
+                    Varchasva Khare
                 </h1>
-                <p className="text-sm uppercase tracking-[0.2em] text-white/50">
-                    Digital Experiences
+                <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-black/80 font-sans">
+                    A Full Stack Web Developer
                 </p>
             </motion.div>
         </section>

@@ -17,7 +17,7 @@ export default function Footer() {
             </div>
 
             <div className="max-w-7xl mx-auto mt-24 flex justify-between text-xs text-white/30 uppercase tracking-widest">
-                <span>© 2024 Audience of One</span>
+                <span>© 2026 Varchasva Khare</span>
                 <span>Minimalistic Portfolio</span>
             </div>
         </footer>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const projects = [
@@ -31,54 +31,57 @@ export default function WorkList() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
     return (
-        <div className="w-full py-24 relative">
-            <div className="max-w-7xl mx-auto px-6">
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        className="flex items-center justify-between py-12 border-b border-white/10 cursor-pointer group relative z-10"
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-15%" }}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
-                    >
-                        <h3 className="text-4xl md:text-6xl font-light tracking-tight group-hover:translate-x-4 transition-transform duration-300">
-                            {project.title}
-                        </h3>
-                        <p className="text-sm md:text-base text-white/40 font-mono">
-                            {project.category}
-                        </p>
-                    </motion.div>
-                ))}
+        <section id="work" className="w-full py-40 relative z-10">
+            <div className="max-w-2xl mx-auto px-6">
+                <div className="flex flex-col gap-12">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            className="flex items-center justify-between py-4 border-b border-white/5 cursor-pointer group relative z-10"
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-10%" }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
+                        >
+                            <h3 className="text-lg md:text-xl font-light tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">
+                                {project.title}
+                            </h3>
+                            <p className="text-sm md:text-base text-white/40 font-mono tracking-tight group-hover:text-white/60 transition-colors duration-300">
+                                {project.category}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
-            {hoveredIndex !== null && (
-                <motion.div
-                    className="fixed pointer-events-none z-0 hidden md:block"
-                    style={{
-                        top: '50%',
-                        left: '50%',
-                        x: '-50%',
-                        y: '-50%'
-                    }}
-                    initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                    transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                >
-                    <div className="w-[400px] h-[300px] relative overflow-hidden rounded-lg">
-                        {/* Using a key to force re-render/animation on change if needed, or just standard state update */}
-                        <Image
-                            src={projects[hoveredIndex].image}
-                            alt={projects[hoveredIndex].title}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                </motion.div>
-            )}
-        </div>
+            <AnimatePresence>
+                {hoveredIndex !== null && (
+                    <motion.div
+                        className="fixed pointer-events-none z-0 hidden md:block"
+                        style={{
+                            top: '50%',
+                            left: '50%',
+                            x: '-50%',
+                            y: '-50%'
+                        }}
+                        initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                        <div className="w-[300px] h-[200px] relative overflow-hidden rounded-sm shadow-2xl">
+                            <Image
+                                src={projects[hoveredIndex].image}
+                                alt={projects[hoveredIndex].title}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </section>
     )
 }

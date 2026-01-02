@@ -15,13 +15,14 @@ export default function Blob() {
     })
 
     return (
-        <Sphere ref={meshRef} args={[1, 64, 64]} scale={1.5}>
+        <Sphere ref={meshRef} args={[1, 128, 128]} scale={1.5} castShadow receiveShadow>
             <MeshDistortMaterial
                 color="#ffffff"
                 attach="material"
-                distort={0.4}
-                speed={1.5}
-                roughness={0.2}
+                distort={0.5}
+                speed={2}
+                roughness={0.4}
+                metalness={0.1}
             />
         </Sphere>
     )

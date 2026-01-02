@@ -2,7 +2,7 @@
 
 export default function GrainOverlay() {
     return (
-        <div className="fixed inset-0 pointer-events-none z-50 opacity-20 mix-blend-overlay">
+        <div className="fixed inset-0 pointer-events-none z-[200] opacity-20 mix-blend-overlay">
             <div
                 className="w-full h-full"
                 style={{

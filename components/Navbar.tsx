@@ -4,19 +4,19 @@ import Link from "next/link"
 
 const navItems = [
     { name: "Work", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Info", href: "/info" },
 ]
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-            <div className="flex items-center gap-6 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-lg">
+        <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+            <div className="flex items-center gap-10 px-8 py-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/5 shadow-2xl">
                 {navItems.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                        className="text-sm font-medium text-white/60 hover:text-white transition-colors tracking-wide"
                     >
                         {item.name}
                     </Link>
