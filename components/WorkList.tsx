@@ -37,7 +37,7 @@ export default function WorkList() {
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            className="flex items-center justify-between py-4 border-b border-white/5 cursor-pointer group relative z-10"
+                            className="flex items-center justify-between py-4 border-b border-black/10 cursor-pointer group relative z-10"
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             initial={{ opacity: 0, y: 10 }}
@@ -45,10 +45,10 @@ export default function WorkList() {
                             viewport={{ once: true, margin: "-10%" }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
                         >
-                            <h3 className="text-lg md:text-xl font-light tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">
+                            <h3 className="text-lg md:text-xl font-light tracking-wide text-black/80 group-hover:text-black transition-colors duration-300">
                                 {project.title}
                             </h3>
-                            <p className="text-sm md:text-base text-white/40 font-mono tracking-tight group-hover:text-white/60 transition-colors duration-300">
+                            <p className="text-sm md:text-base text-black/40 font-mono tracking-tight group-hover:text-black/60 transition-colors duration-300">
                                 {project.category}
                             </p>
                         </motion.div>
