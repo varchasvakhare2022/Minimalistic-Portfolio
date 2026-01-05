@@ -4,8 +4,8 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                 <div>
                     <h2 className="text-2xl font-light mb-2">Get in touch</h2>
-                    <a href="mailto:hello@example.com" className="text-4xl md:text-6xl font-light hover:text-white/70 transition-colors">
-                        hello@example.com
+                    <a href="mailto:vk.varchasva@gmail.com" className="text-4xl md:text-6xl font-light hover:text-white/70 transition-colors">
+                        vk.varchasva@gmail.com
                     </a>
                 </div>
 
