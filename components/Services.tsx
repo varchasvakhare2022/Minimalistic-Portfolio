@@ -105,9 +105,9 @@ export default function Services() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="w-full h-full bg-[radial-gradient(circle_at_center,_#ffffff_0%,_#a0a0a0_100%)] text-black rounded-[2.5rem] px-8 pt-8 pb-4 md:px-12 md:pt-12 md:pb-6 flex flex-col justify-center shadow-2xl relative overflow-hidden group/card"
+                    className="w-full h-full bg-[radial-gradient(circle_at_center,_#ffffff_0%,_#a0a0a0_100%)] text-black rounded-[2.5rem] px-8 pt-8 pb-4 md:px-12 md:pt-12 md:pb-6 flex flex-col justify-center shadow-2xl relative group/card"
                 >
-                    <div className="absolute inset-0 flex items-start pt-2 md:pt-6 overflow-hidden pointer-events-none">
+                    <div className="absolute inset-0 flex items-start pt-2 md:pt-6 pointer-events-none">
                         <motion.div
                             initial={{ x: "-20%", opacity: 0 }}
                             whileInView={{ x: "-5%", opacity: 1 }}

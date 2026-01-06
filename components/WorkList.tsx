@@ -3,40 +3,48 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, ArrowLeft } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Github } from 'lucide-react'
 
 const projects = [
     {
         id: "01",
-        title: "Cura",
-        role: "Health & Wellness",
+        title: "Platera",
+        role: "Food & Community",
         year: "2024",
-        description: "A holistic platform for personal well-being, integrating mindfulness with daily tracking.",
-        image: "https://placehold.co/800x600/101010/FFF?text=Cura"
+        description: "A modern platform for discovering, creating, and sharing recipes - designed around community and experience.",
+        image: "/platera_cover.png",
+        github: "https://github.com",
+        website: "https://platera-app.vercel.app/"
     },
     {
         id: "02",
-        title: "Luma",
-        role: "Lighting Design",
+        title: "Vortex",
+        role: "Voice AI System",
         year: "2023",
-        description: "Minimalist e-commerce experience for high-end architectural lighting solutions.",
-        image: "https://placehold.co/800x600/202020/FFF?text=Luma"
+        description: "A voice-driven system assistant that executes commands through real-time AI interaction.",
+        image: "/Vortex_cover.png",
+        github: "https://github.com",
+        website: "#"
     },
     {
         id: "03",
-        title: "Apex",
-        role: "Financial Tech",
+        title: "VeriscanX",
+        role: "Machine Learning",
         year: "2025",
-        description: "Zero-latency trading interface designed for institutional investors.",
-        image: "https://placehold.co/800x600/303030/FFF?text=Apex"
+        description: "An AI-powered system for detecting fake and automated social media news.",
+        image: "/Veriscanx_cover.png",
+        github: "https://github.com",
+        website: "#"
     },
     {
         id: "04",
-        title: "Mono",
-        role: "Lifestyle",
+        title: "CircleChat",
+        role: "REAL-TIME COMMUNICATION",
         year: "2024",
-        description: "A curated digital magazine focusing on essential living and modern design.",
-        image: "https://placehold.co/800x600/404040/FFF?text=Mono"
+        description: "A real-time group messaging platform designed around shared conversations.",
+        image: "/Circlechat_cover.png",
+        github: "https://github.com",
+        website: "#"
     }
 ]
 
@@ -81,7 +89,10 @@ export default function WorkGallery() {
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-serif text-6xl md:text-8xl lg:text-9xl text-black leading-[0.9] tracking-tight"
+                            className={`font-serif text-black leading-[0.9] tracking-tight ${currentProject.title.length > 8
+                                ? "text-5xl md:text-7xl lg:text-8xl"
+                                : "text-6xl md:text-8xl lg:text-9xl"
+                                }`}
                         >
                             {currentProject.title}
                         </motion.h2>
@@ -124,31 +135,49 @@ export default function WorkGallery() {
                         >
                             <ArrowRight size={18} />
                         </button>
+
+                        <div className="w-[1px] h-8 bg-black/10 mx-2" /> {/* Divider */}
+
+                        <a
+                            href={currentProject.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 border border-black/10 rounded-full hover:bg-black hover:text-white transition-colors duration-300 group"
+                            aria-label="View on GitHub"
+                        >
+                            <Github size={18} />
+                        </a>
                     </div>
                 </div>
             </div>
 
             {/* Right Image */}
-            <div className="flex-1 h-full relative overflow-hidden hidden md:block">
+            <div className="flex-1 h-full relative overflow-hidden hidden md:block group">
                 <AnimatePresence mode="popLayout" custom={direction}>
-                    <motion.div
+                    <motion.a
                         key={currentProject.id}
+                        href={currentProject.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         custom={direction}
                         initial={{ x: direction > 0 ? "100%" : "-100%" }}
                         animate={{ x: 0 }}
                         exit={{ x: direction > 0 ? "-20%" : "20%", opacity: 0 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-0 w-full h-full"
+                        className="absolute inset-0 w-full h-full block cursor-pointer"
                     >
                         <Image
                             src={currentProject.image}
                             alt={currentProject.title}
                             fill
-                            className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                            className="object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-700 ease-in-out"
                         />
                         {/* Overlay Gradient for integration */}
-                        <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/5" />
-                    </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/5 pointer-events-none" />
+
+                        {/* Title Overlay on Image - Sans Serif White (Only for Cura/Custom Images) */}
+                        {/* Removed per user request */}
+                    </motion.a>
                 </AnimatePresence>
             </div>
         </section>
