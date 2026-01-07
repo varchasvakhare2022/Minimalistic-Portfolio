@@ -13,7 +13,7 @@ const projects = [
         year: "2024",
         description: "A modern platform for discovering, creating, and sharing recipes - designed around community and experience.",
         image: "/platera_cover.png",
-        github: "https://github.com",
+        github: "https://github.com/varchasvakhare2022/Platera",
         website: "https://platera-app.vercel.app/"
     },
     {
@@ -23,8 +23,8 @@ const projects = [
         year: "2023",
         description: "A voice-driven system assistant that executes commands through real-time AI interaction.",
         image: "/Vortex_cover.png",
-        github: "https://github.com",
-        website: "#"
+        github: "https://github.com/varchasvakhare2022/V.O.R.T.E.X",
+        website: "https://github.com/varchasvakhare2022/V.O.R.T.E.X"
     },
     {
         id: "03",
@@ -33,8 +33,8 @@ const projects = [
         year: "2025",
         description: "An AI-powered system for detecting fake and automated social media news.",
         image: "/Veriscanx_cover.png",
-        github: "https://github.com",
-        website: "#"
+        github: "https://github.com/varchasvakhare2022/VeriScanX",
+        website: "https://veriscanx.onrender.com/"
     },
     {
         id: "04",
@@ -43,8 +43,8 @@ const projects = [
         year: "2024",
         description: "A real-time group messaging platform designed around shared conversations.",
         image: "/Circlechat_cover.png",
-        github: "https://github.com",
-        website: "#"
+        github: "https://github.com/varchasvakhare2022/CircleChat",
+        website: "https://github.com/varchasvakhare2022/CircleChat"
     }
 ]
 
@@ -136,7 +136,7 @@ export default function WorkGallery() {
                             <ArrowRight size={18} />
                         </button>
 
-                        <div className="w-[1px] h-8 bg-black/10 mx-2" /> {/* Divider */}
+                        <div className="w-[1] h-8 bg-black/10 mx-2" /> {/* Divider */}
 
                         <a
                             href={currentProject.github}

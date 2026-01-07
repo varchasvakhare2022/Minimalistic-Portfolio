@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Mail } from 'lucide-react'
 
-import ServiceGeometry from './ServiceGeometry'
 import SliderButton from './SliderButton'
 
 export default function Services() {
@@ -40,14 +39,13 @@ export default function Services() {
     return (
         <section className="min-h-screen w-full bg-black text-white flex flex-col md:flex-row relative z-20">
             {/* Left: Services List */}
-            <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 relative overflow-hidden">
-                <ServiceGeometry />
+            <div className="flex-1 flex flex-col justify-center px-6 md:px-0 md:pl-12 md:items-end py-20 relative overflow-hidden">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="space-y-12"
+                    className="space-y-12 w-full max-w-xl translate-x-6 md:translate-x-14 z-10"
                 >
                     <h2 className="font-serif text-5xl md:text-7xl opacity-90">
                         Services
@@ -57,32 +55,24 @@ export default function Services() {
                         <div className="group cursor-pointer">
                             <h3 className="text-2xl font-light flex items-center gap-4 group-hover:text-white/80 transition-colors">
                                 <span className="text-sm font-mono opacity-50">01</span>
-                                Web Development
+                                Website Creation & Hosting
                             </h3>
                             <p className="pl-10 text-white/40 text-sm max-w-sm mt-2">
-                                Custom tailored websites built with modern technologies like React, Next.js, and Three.js.
+                                Creating and hosting websites tailored for small business owners.
                             </p>
                         </div>
 
                         <div className="group cursor-pointer">
                             <h3 className="text-2xl font-light flex items-center gap-4 group-hover:text-white/80 transition-colors">
                                 <span className="text-sm font-mono opacity-50">02</span>
-                                Small Business Solutions
+                                Project Collaboration
                             </h3>
                             <p className="pl-10 text-white/40 text-sm max-w-sm mt-2">
-                                Scalable digital presence for growing businesses, from landing pages to e-commerce.
+                                Available for collaboration in any project requiring modern web expertise.
                             </p>
                         </div>
 
-                        <div className="group cursor-pointer">
-                            <h3 className="text-2xl font-light flex items-center gap-4 group-hover:text-white/80 transition-colors">
-                                <span className="text-sm font-mono opacity-50">03</span>
-                                Technical Consultation
-                            </h3>
-                            <p className="pl-10 text-white/40 text-sm max-w-sm mt-2">
-                                Architecture planning, performance optimization, and SEO strategy.
-                            </p>
-                        </div>
+
                     </div>
 
                     <div className="pt-8">
@@ -105,7 +95,7 @@ export default function Services() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="w-full h-full bg-[radial-gradient(circle_at_center,_#ffffff_0%,_#a0a0a0_100%)] text-black rounded-[2.5rem] px-8 pt-8 pb-4 md:px-12 md:pt-12 md:pb-6 flex flex-col justify-center shadow-2xl relative group/card"
+                    className="w-[70.5%] h-full bg-[radial-gradient(circle_at_center,_#ffffff_0%,_#a0a0a0_100%)] text-black rounded-[2.5rem] px-8 pt-8 pb-4 md:px-12 md:pt-12 md:pb-6 flex flex-col justify-center shadow-2xl relative group/card"
                 >
                     <div className="absolute inset-0 flex items-start pt-2 md:pt-6 pointer-events-none">
                         <motion.div
@@ -119,14 +109,33 @@ export default function Services() {
                             Contact
                         </motion.div>
                     </div>
-                    <form onSubmit={handleSubmit} className="flex flex-col h-full justify-end pb-0 relative z-10">
-                        {/* 
-                        <div className="font-serif text-3xl md:text-5xl leading-tight text-black/80 max-w-4xl mx-auto text-center flex flex-col items-center justify-center min-h-[300px]">
-                            Let's work together.
-                        </div> 
-                        */}
+                    <form onSubmit={handleSubmit} className="flex flex-col h-full justify-between pb-0 relative z-10 box-border">
 
-                        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                        {/* Form Inputs */}
+                        <div className="flex flex-col gap-6 md:gap-8 w-full max-w-2xl mx-auto flex-grow justify-center mt-4">
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your Name"
+                                required
+                                className="w-full bg-transparent border-b border-black/10 focus:border-black outline-none py-4 text-xl md:text-2xl font-serif placeholder:text-black/20 text-black transition-all duration-300"
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Your Email"
+                                required
+                                className="w-full bg-transparent border-b border-black/10 focus:border-black outline-none py-4 text-xl md:text-2xl font-serif placeholder:text-black/20 text-black transition-all duration-300"
+                            />
+                            <textarea
+                                name="message"
+                                placeholder="Tell me about your project..."
+                                required
+                                className="w-full bg-transparent border-b border-black/10 focus:border-black outline-none py-4 text-xl md:text-2xl font-serif placeholder:text-black/20 text-black transition-all duration-300 resize-none h-24 md:h-32"
+                            />
+                        </div>
+
+                        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6 pb-2">
                             <p className="text-sm font-sans text-black/40 order-2 md:order-1">
                                 *I'll get back to you within 24h.
                             </p>
